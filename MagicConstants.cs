@@ -18,5 +18,5 @@ public static class MagicConstants
 
     public const int
         MaxMessageLength =
-            512; //each block is 8 pixels long, 512 block limit individually but a limit of 2560 packets overall
+            512; //each block is 8 pixels long, 512 block limit individually but a limit of 2560 blocks overall i think?
 }
