@@ -1,0 +1,423 @@
+[gd_scene load_steps=5 format=3 uid="uid://drl6txlb8wn8g"]
+
+[ext_resource type="Script" path="res://MainManager.cs" id="1_ivhun"]
+[ext_resource type="FontFile" uid="uid://b1j44y200022d" path="res://pixel-dungeons.ttf" id="3_njoal"]
+[ext_resource type="Texture2D" uid="uid://ddy8tna6lhv6s" path="res://grid.png" id="4_64m8p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dbayo"]
+
+[node name="Control" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("DeviceWidthBox", "FontPathLabel", "FontSelectButton", "FontClearButton", "FontScale", "TextOffsetX", "TextOffsetY", "DrawSpaceParent", "DrawImage", "ByteGrid", "DrawSpace", "DeviceWidthSeparators", "Tabs", "EnabledButton", "FlashButton", "LampButton", "Speed", "AnimationMode", "ImageMode", "TextEdit", "TextEntryRoot", "TextRenderViewport", "TextRenderText", "ByteLimitBar", "ByteLimitText", "ExportButton", "SaveButton", "LoadButton")]
+script = ExtResource("1_ivhun")
+DeviceWidthBox = NodePath("../MarginContainer/VBoxContainer/DeviceSettings/HBoxContainer/SpinBox")
+FontPathLabel = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Font/PanelContainer/MarginContainer/Label")
+FontSelectButton = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Font/FontSelectButton")
+FontClearButton = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Font/Clear")
+FontScale = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/PosScale/Scale/SpinBox")
+TextOffsetX = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/PosScale/Position/XOffset")
+TextOffsetY = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/PosScale/Position/YOffset")
+DrawSpaceParent = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/MarginContainer/DrawScroll/PanelContainer")
+DrawImage = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/MarginContainer/DrawScroll/PanelContainer/DrawImage")
+ByteGrid = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/MarginContainer/DrawScroll/PanelContainer/ByteGrid")
+DrawSpace = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/MarginContainer/DrawScroll/PanelContainer/DrawArea")
+DeviceWidthSeparators = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/MarginContainer/DrawScroll/PanelContainer/WidthMarkers")
+Tabs = NodePath("../MarginContainer/VBoxContainer/MessageSelector")
+EnabledButton = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Toggles/Enabled")
+FlashButton = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Toggles/Flash")
+LampButton = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Toggles/Lamp")
+Speed = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Speed/Box/SpinBox")
+AnimationMode = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/ShowMode/Box/DropDown")
+ImageMode = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/ImageMode/Box/DropDown")
+TextEdit = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Value/LineEdit")
+TextEntryRoot = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text")
+TextRenderViewport = NodePath("SubViewport")
+TextRenderText = NodePath("SubViewport/Label")
+ByteLimitBar = NodePath("../MarginContainer/VBoxContainer/Export/ProgressBar")
+ByteLimitText = NodePath("../MarginContainer/VBoxContainer/Export/Label")
+ExportButton = NodePath("../MarginContainer/VBoxContainer/Export/Button")
+SaveButton = NodePath("../MarginContainer/VBoxContainer/Export/Save")
+LoadButton = NodePath("../MarginContainer/VBoxContainer/Export/Load")
+DefaultFont = ExtResource("3_njoal")
+
+[node name="SubViewport" type="SubViewport" parent="Node"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(4096, 16)
+render_target_update_mode = 4
+
+[node name="Label" type="Label" parent="Node/SubViewport"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("3_njoal")
+text = "testing testing 123 lol"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="DeviceSettings" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DeviceSettings"]
+layout_mode = 2
+text = "Device Settings
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/DeviceSettings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DeviceSettings/HBoxContainer"]
+layout_mode = 2
+text = "Width"
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/DeviceSettings/HBoxContainer"]
+layout_mode = 2
+min_value = 32.0
+max_value = 64.0
+value = 44.0
+rounded = true
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Messages
+"
+horizontal_alignment = 1
+
+[node name="MessageSelector" type="TabBar" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+tab_count = 8
+tab_alignment = 1
+tab_0/title = "1"
+tab_1/title = "2"
+tab_2/title = "3"
+tab_3/title = "4"
+tab_4/title = "5"
+tab_5/title = "6"
+tab_6/title = "7"
+tab_7/title = "8"
+
+[node name="MessageEditor" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MessageEditor"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="DrawScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/MarginContainer/DrawScroll"]
+custom_minimum_size = Vector2(32768, 128)
+layout_mode = 2
+
+[node name="DrawImage" type="TextureRect" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/MarginContainer/DrawScroll/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+
+[node name="Grid" type="TextureRect" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/MarginContainer/DrawScroll/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_64m8p")
+stretch_mode = 1
+
+[node name="ByteGrid" type="TextureRect" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/MarginContainer/DrawScroll/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+stretch_mode = 1
+
+[node name="WidthMarkers" type="TextureRect" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/MarginContainer/DrawScroll/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+stretch_mode = 1
+
+[node name="DrawArea" type="PanelContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/MarginContainer/DrawScroll/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dbayo")
+
+[node name="Settings" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Toggles" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Enabled" type="CheckButton" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Toggles"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enabled"
+
+[node name="Flash" type="CheckButton" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Toggles"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Flash"
+
+[node name="Lamp" type="CheckButton" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Toggles"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Lamp"
+
+[node name="Speed" type="MarginContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Box" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Speed"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Text" type="Label" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Speed/Box"]
+layout_mode = 2
+text = "Speed"
+
+[node name="Spacer" type="Container" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Speed/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Speed/Box"]
+layout_mode = 2
+min_value = 1.0
+max_value = 8.0
+value = 1.0
+rounded = true
+
+[node name="ShowMode" type="MarginContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Box" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/ShowMode"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Text" type="Label" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/ShowMode/Box"]
+layout_mode = 2
+text = "Animation Mode
+"
+
+[node name="Spacer" type="Container" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/ShowMode/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DropDown" type="OptionButton" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/ShowMode/Box"]
+layout_mode = 2
+item_count = 11
+selected = 0
+popup/item_0/text = "Left"
+popup/item_0/id = 0
+popup/item_1/text = "Right"
+popup/item_1/id = 1
+popup/item_2/text = "Up"
+popup/item_2/id = 2
+popup/item_3/text = "Down"
+popup/item_3/id = 3
+popup/item_4/text = "Freeze"
+popup/item_4/id = 4
+popup/item_5/text = "Animation"
+popup/item_5/id = 5
+popup/item_6/text = "Piling"
+popup/item_6/id = 6
+popup/item_7/text = "Split"
+popup/item_7/id = 7
+popup/item_8/text = "Laser"
+popup/item_8/id = 8
+popup/item_9/text = "Smooth"
+popup/item_9/id = 9
+popup/item_10/text = "Rotate"
+popup/item_10/id = 10
+
+[node name="ImageMode" type="MarginContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Box" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/ImageMode"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Text" type="Label" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/ImageMode/Box"]
+layout_mode = 2
+text = "Image Mode"
+
+[node name="Spacer" type="Container" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/ImageMode/Box"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DropDown" type="OptionButton" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/ImageMode/Box"]
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "Text"
+popup/item_0/id = 0
+popup/item_1/text = "Image"
+popup/item_1/id = 1
+
+[node name="Text" type="MarginContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text"]
+layout_mode = 2
+
+[node name="Heading" type="Label" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer"]
+layout_mode = 2
+text = "Text
+"
+horizontal_alignment = 1
+
+[node name="Value" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Text" type="Label" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Value"]
+layout_mode = 2
+text = "Value"
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Value"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "YIPPEE"
+
+[node name="Font" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Font"]
+layout_mode = 2
+text = "Font"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Font"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Font/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Font/PanelContainer/MarginContainer"]
+layout_mode = 2
+clip_text = true
+
+[node name="FontSelectButton" type="Button" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Font"]
+layout_mode = 2
+text = "Select Font"
+
+[node name="Clear" type="Button" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Font"]
+layout_mode = 2
+text = "Clear
+"
+
+[node name="PosScale" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer"]
+layout_mode = 2
+
+[node name="Scale" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/PosScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/PosScale/Scale"]
+layout_mode = 2
+text = "Scale
+"
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/PosScale/Scale"]
+layout_mode = 2
+min_value = 0.01
+step = 0.01
+value = 1.0
+
+[node name="Position" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/PosScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/PosScale/Position"]
+layout_mode = 2
+text = "Offset
+"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/PosScale/Position"]
+layout_mode = 2
+text = "X:"
+
+[node name="XOffset" type="SpinBox" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/PosScale/Position"]
+layout_mode = 2
+min_value = -100.0
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/PosScale/Position"]
+layout_mode = 2
+text = "Y:"
+
+[node name="YOffset" type="SpinBox" parent="MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/PosScale/Position"]
+layout_mode = 2
+min_value = -100.0
+
+[node name="Export" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Export"]
+layout_mode = 2
+text = "0000 / 4096 Bytes"
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer/Export"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 4096.0
+step = 1.0
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/Export"]
+layout_mode = 2
+text = "Export to Badge"
+
+[node name="Save" type="Button" parent="MarginContainer/VBoxContainer/Export"]
+layout_mode = 2
+text = "Save to File"
+
+[node name="Load" type="Button" parent="MarginContainer/VBoxContainer/Export"]
+layout_mode = 2
+text = "Load From File"
