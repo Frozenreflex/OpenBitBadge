@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Node" type="Node" parent="." node_paths=PackedStringArray("DeviceWidthBox", "FontPathLabel", "FontSelectButton", "FontClearButton", "FontScale", "TextOffsetX", "TextOffsetY", "DrawSpaceParent", "DrawImage", "ByteGrid", "DrawSpace", "DeviceWidthSeparators", "Tabs", "EnabledButton", "FlashButton", "LampButton", "Speed", "AnimationMode", "ImageMode", "TextEdit", "TextEntryRoot", "TextRenderViewport", "TextRenderText", "ByteLimitBar", "ByteLimitText", "ExportButton", "SaveButton", "LoadButton")]
+[node name="Node" type="Node" parent="." node_paths=PackedStringArray("DeviceWidthBox", "FontPathLabel", "FontSelectButton", "FontClearButton", "FontScale", "TextOffsetX", "TextOffsetY", "DrawSpaceParent", "DrawImage", "ByteGrid", "DrawSpace", "DeviceWidthSeparators", "Tabs", "EnabledButton", "FlashButton", "LampButton", "Speed", "AnimationMode", "ImageMode", "TextEdit", "TextEntryRoot", "TextRenderViewport", "TextRenderText", "ByteLimitBar", "ByteLimitText", "ExportButton", "SaveButton", "LoadButton", "CreditLabel")]
 script = ExtResource("1_ivhun")
 DeviceWidthBox = NodePath("../MarginContainer/VBoxContainer/DeviceSettings/HBoxContainer/SpinBox")
 FontPathLabel = NodePath("../MarginContainer/VBoxContainer/MessageEditor/VBoxContainer/Settings/Text/VBoxContainer/Font/PanelContainer/MarginContainer/Label")
@@ -44,6 +44,7 @@ ExportButton = NodePath("../MarginContainer/VBoxContainer/Export/Button")
 SaveButton = NodePath("../MarginContainer/VBoxContainer/Export/Save")
 LoadButton = NodePath("../MarginContainer/VBoxContainer/Export/Load")
 DefaultFont = ExtResource("3_njoal")
+CreditLabel = NodePath("../MarginContainer/VBoxContainer/Export/RichTextLabel")
 
 [node name="SubViewport" type="SubViewport" parent="Node"]
 disable_3d = true
@@ -399,6 +400,13 @@ min_value = -100.0
 [node name="Export" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Export"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[url=https://github.com/Frozenreflex/OpenBitBadge][color=CORNFLOWER_BLUE]OpenBitBadge by Frozenreflex[/color][/url]"
+scroll_active = false
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Export"]
 layout_mode = 2

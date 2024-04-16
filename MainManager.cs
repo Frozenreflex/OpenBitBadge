@@ -38,6 +38,7 @@ public partial class MainManager : Node
     [Export] public Button SaveButton;
     [Export] public Button LoadButton;
     [Export] public Font DefaultFont;
+    [Export] public RichTextLabel CreditLabel;
     public int CurrentSelected => Tabs.CurrentTab;
 
     public static readonly List<Action> ActionQueue = new();
@@ -67,10 +68,10 @@ public partial class MainManager : Node
         FontScale.ValueChanged += FontScaleOnValueChanged;
         FontClearButton.Pressed += FontClearButtonOnPressed;
         DrawSpace.GuiInput += DrawSpaceOnGuiInput;
+        CreditLabel.MetaClicked += meta => OS.ShellOpen(meta.AsString());
         DeviceHeightChanged(Packet.ImageHeight);
         Update();
     }
-
     private void LoadButtonOnPressed()
     {
         var window = new FileDialog
